@@ -1,14 +1,18 @@
-// sw.js
+const CACHE_NAME = 'pandemonium-v1';
+const FILES_TO_CACHE = [
+  '/pandemonium/',
+  '/pandemonium/index.html',
+  '/pandemonium/manifest.json',
+  '/pandemonium/icon.png',
+  '/pandemonium/icon_2.png',
+  '/pandemonium/icon_3.png',
+  '/pandemonium/icon_4.png'
+];
+
 self.addEventListener('install', (event) => {
-  console.log('Service Worker instalado');
   event.waitUntil(
-    caches.open('pandemonium-cache').then((cache) => {
-      return cache.addAll([
-        '/',
-        '/index.html',
-        '/style.css',
-        '/script.js'
-      ]);
+    caches.open(CACHE_NAME).then((cache) => {
+      return cache.addAll(FILES_TO_CACHE);
     })
   );
 });
