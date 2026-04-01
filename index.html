@@ -1294,7 +1294,7 @@ body {
 <script>
   if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/sw.js')
+    navigator.serviceWorker.register('/pandemonium/sw.js')
         .then(reg => console.log('SW registrado:', reg.scope))
         .catch(err => console.log('Error al registrar SW:', err));
     });
@@ -3554,22 +3554,6 @@ if ('serviceWorker' in navigator) {
       .catch(err => console.log('SW error:', err));
   });
 }
-```
-
-Quedaría así:
-```
-...
-  }  // cierre de toggleMute
-
-  // Registrar Service Worker
-  if ('serviceWorker' in navigator) {
-    window.addEventListener('load', () => {
-      navigator.serviceWorker.register('/pandemonium/sw.js')
-        .then(reg => console.log('SW registrado:', reg))
-        .catch(err => console.log('SW error:', err));
-    });
-  }
-
 </script>
 </body>
 </html></script>
